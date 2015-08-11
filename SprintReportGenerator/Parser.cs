@@ -22,11 +22,12 @@ namespace SprintReportGenerator
             {
                 try
                 {
-                    var day = ParseDayModel(line);
+                    var trimmedLine = line.Trim();
+                    var day = ParseDayModel(trimmedLine);
 
                     if (day == null)
                     {
-                        var task = ParseTaskModel(line);
+                        var task = ParseTaskModel(trimmedLine);
                         if (task != null)
                         {
                             if (currentDay == null) throw new Exception("Task with no day found!");
